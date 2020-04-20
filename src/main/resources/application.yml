@@ -1,0 +1,35 @@
+security:
+     oauth2:
+       resource:
+          tokenInfoUri: http://localhost:8080/oauth/check_token
+       client:
+          clientId: yoga-app
+          clientSecret: yoga-369-app-123
+
+spring:
+  application:
+    name: Yoga App
+  datasource:
+      url: jdbc:derby://localhost:1527/demo-fullstack;create=true
+      username: APP
+      password: APP
+      driver-class-name: org.apache.derby.jdbc.ClientDriver
+  jpa:
+      show-sql: true
+      hibernate:
+         ddl-auto: none
+      properties:
+         hibernate:
+            format_sql: false
+            connection:
+               autocommit: true
+               isolation: 2 # matching Oracle, at 2 most likely for multi-transaction use
+            dialect: org.hibernate.dialect.DerbyTenSevenDialect
+server:
+   port: 9000
+
+logging:
+  level:
+     org.springframework: DEBUG
+  file: logs/application.log
+  
